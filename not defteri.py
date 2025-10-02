@@ -1,4 +1,9 @@
 notlar = []
+
+def kaydet(not_metni):
+    with open("notlar.txt", "a", encoding="utf-8") as f:
+        f.write(not_metni + "\n")
+
 while True:
     print("\nNOT DEFTERİ")
     print("1 - Not Ekle")
@@ -10,10 +15,7 @@ while True:
     if secim == "1":
         not_metni = input("Notunuzu yazın: ")
         notlar.append(not_metni)
-        # Her eklemede dosyaya kaydedelim
-        with open("notlar.txt", "w", encoding="utf-8") as f:
-            for n in notlar:
-                f.write(n + "\n")
+        kaydet(not_metni)  # Fonksiyonu burada kullandık
         print("✅ Not eklendi.")
 
     elif secim == "2":
@@ -30,9 +32,3 @@ while True:
 
     else:
         print("⚠ Geçersiz seçim, tekrar deneyin.")
-
-
-
-def kaydet():
-    with open("notlar.txt", "a",encoding="utf-8") as f:
-            f.write(not_metni + "\n")
