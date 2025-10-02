@@ -31,5 +31,9 @@ while True:
     else:
         print("⚠ Geçersiz seçim, tekrar deneyin.")
 
+
+
 def kaydet():
-    with open(notlarg)
+    with open("notlar.txt", "a",encoding="utf-8") as f:
+        for n in notlar :
+            f.write(not_metni + "\n")
