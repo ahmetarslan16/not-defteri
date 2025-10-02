@@ -35,5 +35,4 @@ while True:
 
 def kaydet():
     with open("notlar.txt", "a",encoding="utf-8") as f:
-        for n in notlar :
             f.write(not_metni + "\n")
