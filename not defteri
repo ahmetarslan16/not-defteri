@@ -4,6 +4,15 @@ def kaydet(not_metni):
     with open("notlar.txt", "a", encoding="utf-8") as f:
         f.write(not_metni + "\n")
 
+def yükle():
+    try:
+        with open("notlar.txt", "r", encoding="utf-8") as f:
+            for satir in f.readlines():
+                notlar.append(satir.strip())
+    except FileNotFoundError:
+        pass
+yükle()
+
 while True:
     print("\nNOT DEFTERİ")
     print("1 - Not Ekle")
@@ -32,3 +41,4 @@ while True:
 
     else:
         print("⚠ Geçersiz seçim, tekrar deneyin.")
+
