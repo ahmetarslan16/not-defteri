@@ -11,6 +11,7 @@ def yükle():
                 notlar.append(satir.strip())
     except FileNotFoundError:
         pass
+
 yükle()
 
 while True:
@@ -18,6 +19,7 @@ while True:
     print("1 - Not Ekle")
     print("2 - Notları Listele")
     print("3 - Çıkış")
+    print("4 - Not Sil")
 
     secim = input("Seçiminizi girin: ")
 
@@ -36,8 +38,22 @@ while True:
                 print(f"{i}. {n}")
 
     elif secim == "3":
-        print("📌 Programdan çıkılıyor...")
+        print("✅ Notlar kaydedildi, programdan çıkılıyor...")
         break
+
+    elif secim == "4":
+        if not notlar:
+            print(" Silinecek not yok.")
+        else:
+            print("\n--- Notlar ---")
+            for i, notum in enumerate(notlar, 1):
+                print(f"{i}. {notum}")
+            try:
+                num = int(input("Silmek istediğiniz notun numarasını girin: "))
+                notlar.pop(num - 1)
+                print("🗑️ Seçtiğiniz not başarıyla silindi.")
+            except (ValueError, IndexError):
+                print("⚠ Geçersiz seçim.")
 
     else:
         print("⚠ Geçersiz seçim, tekrar deneyin.")
